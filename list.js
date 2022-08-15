@@ -2,10 +2,10 @@ const chores = document.querySelector('#chores');
 const addButton = document.querySelector('#add-task-button');
 const message = document.querySelector('#message');
 const banner = document.querySelector('#chores-banner');
-const bannerInput = document.querySelector('#banner-input');
-const bannerButton = document.querySelector('#banner-button');
-bannerButton.addEventListener('click', addTask);
-addButton.addEventListener('click', openBanner);
+const bannerInput = document.querySelector('#input');
+// const bannerButton = document.querySelector('#banner-button');
+// bannerButton.addEventListener('click', addTask);
+addButton.addEventListener('click', addTask);
 
 function isScheduleEmpty () {
     if (chores.childElementCount == 1) {
@@ -19,7 +19,6 @@ function addTask () {
     if (bannerInput.value == '') {
         alert('Please write something');
     } else {
-        closeBanner();
         chores.innerHTML +=     
         `
         <article class="chores__item">
@@ -36,20 +35,10 @@ function addTask () {
     
 }
 
-function closeBanner () {
-    banner.style.display = 'none';
-}
-function openBanner () {
-    banner.style.display = 'block';
-}
-
 document.addEventListener('keyup', add);
 
 function add(event) {
-    if (banner.style.display == 'none' || banner.style.display == '') {
-    } else {
-        if (event.keyCode == 13) {
-            addTask();
-        }
+    if (event.keyCode == 13) {
+        addTask();
     }
 }
