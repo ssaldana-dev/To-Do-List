@@ -1,5 +1,6 @@
 :root {
     --base-color: #54BAB9;
+    --base-darker-color: #3d8f8d;
     --primary-color: #9ED2C6;
     --text-base-color: #E9DAC1;
     --text-primary-color: #F7ECDE;
@@ -12,4 +13,138 @@
 html {
     font-size: 62.5%;
     font-family: "Muli", sans-serif;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 20px;
+    height: 100vh;
+    background-color: var(--base-color);
+}
+.title {
+    margin: 20px 0px;
+    text-align: center;
+    font-size: 3.2rem;
+    color: var(--text-primary-color);
+}
+.main__button-add {
+    margin: auto 0px 20px 0px;
+}
+.chores {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.chores__message {
+    margin: auto;
+    font-size: 1.4rem;
+    color: var(--text-primary-color);
+}
+.chores__item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    background-color: var(--text-base-color);
+}
+.chores__item__text {
+    font-size: 1.4rem;
+}
+.chores__item__checkbox {
+    margin: 0px 15px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--text-base-color);
+}
+.main__button-add {
+    padding-left: 20px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    text-align: start;
+    font-size: 1.8rem;
+    background-color: var(--base-darker-color);
+    color: var(--text-primary-color);
+    cursor: pointer;
+}
+.chores__item__remove {
+    width: 0px;
+    margin-left: auto;
+    border: none;
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: var(--base-darker-color);
+    cursor: pointer;
+
+    transition: 350ms;
+}
+.chores__item__remove img {
+    width: 0px;
+
+    transition: 350ms;
+}
+
+.chores__item:hover .chores__item__remove {
+    width: 40px;
+}
+.chores__item:hover .chores__item__remove img {
+    width: 20px;
+}
+
+.disabled {
+    display: none;
+}
+.enabled {
+    display: block;
+}
+
+
+.chores-banner {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--base-color);
+}
+.chores-banner__input {
+    padding-left: 20px;
+    margin-top: 40vh;
+    margin-left: 20px;
+    width: calc(100% - 40px);
+    height: 40px;
+    font-size: 1.4rem;
+    font-family: 'Muli';
+    color: var(--text-primary-color);
+    border: none;
+    border-radius: 5px;
+    background-color: var(--base-darker-color);
+    outline: none;
+}
+.chores-banner__button {
+    height: 35px;
+    width: 120px;
+    margin-top: 20px;
+    margin-left: calc(50% - 60px);
+    font-size: 2.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--base-darker-color);
+    color: var(--text-primary-color);
+    cursor: pointer;
+}
+.chores-banner__button:hover {
+    transition: 350ms;
+    background-color: #4ba8a7;
+}
+.chores-banner__button:active {
+    transition: 100ms;
+    background-color: #5fd1cf;
 }

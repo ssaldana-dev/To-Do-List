@@ -13,32 +13,26 @@
     </header>
 
     <main>
-        <article>
-            <h1>Today's schedule</h1>
-        </article>
-        <section>
-            <article>
-                <input type="checkbox">
-                <span>Primera tarea del día.</span>
-            </article>
-            <article>
-                <input type="checkbox">
-                <span>Segunda tarea del día.</span>
-            </article>
-            <article>
-                <input type="checkbox">
-                <span>Tercera tarea del día.</span>
-            </article>
+        <h1 class="title">Today's schedule</h1>
+        <section id="chores" class="chores">
+            <p id="message" class="chores__message">You don't have any task yet</p>
         </section>
-        <button>
+        <button id="add-task-button" class="main__button-add">
             + Add Task
         </button>
+
+        <div id="chores-banner" class="chores-banner">
+            <input id="banner-input" class="chores-banner__input" type="text">
+            <button id="banner-button" class="chores-banner__button">Add</button>
+        </div>
+
     </main>
 
     <footer>
 
     </footer>
     
+    <script src="./choreClass.js"></script>
     <script src="./list.js"></script>
 </body>
 </html>
