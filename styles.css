@@ -1,0 +1,15 @@
+:root {
+    --base-color: #54BAB9;
+    --primary-color: #9ED2C6;
+    --text-base-color: #E9DAC1;
+    --text-primary-color: #F7ECDE;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    font-family: "Muli", sans-serif;
+}
