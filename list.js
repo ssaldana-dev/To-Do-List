@@ -3,14 +3,12 @@ const addButton = document.querySelector('#add-task-button');
 const message = document.querySelector('#message');
 const banner = document.querySelector('#chores-banner');
 const bannerInput = document.querySelector('#input');
-// const bannerButton = document.querySelector('#banner-button');
-// bannerButton.addEventListener('click', addTask);
+
 addButton.addEventListener('click', addTask);
 
 function isScheduleEmpty () {
     if (chores.childElementCount == 1) {
         message.style.display = 'block';
-        console.log('Function works');
     }
 }
 
@@ -19,20 +17,37 @@ function addTask () {
     if (bannerInput.value == '') {
         alert('Please write something');
     } else {
-        chores.innerHTML +=     
-        `
-        <article class="chores__item">
-            <input class="chores__item__checkbox" type="checkbox">
-            <span class="chores__item__text">${bannerInput.value}</span>
-            <button id="remove" class="chores__item__remove" onclick="this.parentNode.remove(); isScheduleEmpty()">
-                <img src="./assets/delete-icon.svg" alt="">
-            </button>
-        </article>
-        `;
+        const task = createTask(bannerInput.value);
+        chores.append(task);
         bannerInput.value = '';
-
     }
-    
+}
+
+function createTask (text) {
+    const newTask = document.createElement('article');
+    const taskCheck = document.createElement('input');
+    const taskSpan = document.createElement('span');
+    const taskText = document.createTextNode(text);
+    const taskRemove = document.createElement('button');
+    const removeIcon = document.createElement('img');
+
+    newTask.classList.add('chores__item');
+    taskCheck.classList.add('chores__item__checkbox');
+    taskSpan.classList.add('chores__item__text');
+    taskRemove.classList.add('chores__item__remove');
+
+    removeIcon.setAttribute('src', './assets/delete-icon.svg');
+    taskCheck.setAttribute('type', 'checkbox');
+    taskRemove.setAttribute('onClick', 'this.parentElement.remove(); isScheduleEmpty();');
+
+    newTask.append(taskCheck);
+    newTask.append(taskSpan);
+    newTask.append(taskSpan);
+    newTask.append(taskRemove);
+    taskSpan.append(taskText);
+    taskRemove.append(removeIcon);
+
+    return newTask;
 }
 
 document.addEventListener('keyup', add);

@@ -50,9 +50,15 @@ main {
     margin-bottom: 3px;
     border-radius: 5px;
     background-color: var(--text-base-color);
+
+    animation: stepIn 1 .35s;
+}
+@keyframes stepIn {
+    0% {width: 50%;}
 }
 .chores__item__text {
     font-size: 1.4rem;
+    overflow: hidden;
 }
 .chores__item__checkbox {
     margin: 0px 15px;
